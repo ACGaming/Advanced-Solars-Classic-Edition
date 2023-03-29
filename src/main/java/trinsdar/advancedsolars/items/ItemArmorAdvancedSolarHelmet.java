@@ -12,6 +12,7 @@ import ic2.core.util.obj.plugins.IBaublesPlugin;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
@@ -103,8 +104,6 @@ public class ItemArmorAdvancedSolarHelmet extends ItemElectricArmorBase implemen
         return Ic2Icons.getTextures("advancedsolars_items")[id];
     }
 
-
-
     public int chargeInventory(EntityPlayer player, int provided, int tier, ItemStack helmet) {
 
         int i;
@@ -138,5 +137,19 @@ public class ItemArmorAdvancedSolarHelmet extends ItemElectricArmorBase implemen
         }
 
         return provided;
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack stack) {
+        switch (this.id) {
+            case 11:
+                return EnumRarity.UNCOMMON;
+            case 12:
+                return EnumRarity.RARE;
+            case 13:
+                return EnumRarity.EPIC;
+            default:
+                return super.getRarity(stack);
+        }
     }
 }

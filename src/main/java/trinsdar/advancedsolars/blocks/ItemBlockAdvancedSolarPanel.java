@@ -5,6 +5,7 @@ import ic2.core.platform.lang.storage.Ic2InfoLang;
 import ic2.core.platform.player.PlayerHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import trinsdar.advancedsolars.util.AdvancedSolarLang;
@@ -87,5 +88,19 @@ public class ItemBlockAdvancedSolarPanel extends ItemBlockRare {
         }else {
             return 0.0D;
         }
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack stack)
+    {
+        Block block = this.getBlock();
+        if (block == Registry.advancedSolarPanel) {
+            return EnumRarity.UNCOMMON;
+        } if (block == Registry.hybridSolarPanel) {
+            return EnumRarity.RARE;
+        } if (block == Registry.ultimateHybridSolarPanel) {
+            return EnumRarity.EPIC;
+        }
+        return super.getRarity(stack);
     }
 }
