@@ -187,7 +187,7 @@ public class TileEntityAdvancedSolarPanel extends TileEntityGeneratorBase {
     }
 
     public boolean skyBlockCheck(){
-        return this.getWorld().canBlockSeeSky(this.getPos().up()) && this.getWorld().provider.hasSkyLight();
+        return this.getWorld().canSeeSky(this.getPos().up()) && this.getWorld().provider.hasSkyLight();
     }
 
     public boolean isSunVisible(){

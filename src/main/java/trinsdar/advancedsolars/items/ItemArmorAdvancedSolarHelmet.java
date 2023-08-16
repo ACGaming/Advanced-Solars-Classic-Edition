@@ -62,7 +62,7 @@ public class ItemArmorAdvancedSolarHelmet extends ItemElectricArmorBase implemen
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         if (!IC2.platform.isRendering()) {
-            if (world.provider.hasSkyLight() && world.canBlockSeeSky(player.getPosition())){
+            if (world.provider.hasSkyLight() && world.canSeeSky(player.getPosition())){
                 if (TileEntitySolarPanel.isSunVisible(world, player.getPosition())) {
                     chargeInventory(player, production, tier, itemStack);
                 }else {
